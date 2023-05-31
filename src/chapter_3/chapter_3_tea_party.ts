@@ -3,7 +3,7 @@ import { playCroquet } from '../chapter_4/chapter_4_croquet';
 import { askQuestion, clear, print } from '../ui/console';
 
 const DRINKS = ['Coffee', 'Tea', 'Water', 'Lemonade'] as const;
-type DrinkType = typeof DRINKS[number];
+type DrinkType = (typeof DRINKS)[number];
 
 type Drink = {
 	type: DrinkType;
@@ -19,8 +19,18 @@ type Table = {
 };
 
 function setTheTable(): Table {
-	// 👉 FIXME ❌
-	return { seats: [] };
+	const table: Table = { seats: [] };
+
+	for (let i = 0; i < 4; i++) {
+		table.seats.push({
+			drink: {
+				type: 'Tea',
+				poured: true,
+			},
+		});
+	}
+
+	return table;
 }
 
 export function attendATeaParty() {
@@ -52,15 +62,11 @@ export function attendATeaParty() {
 	});
 
 	if (!properlySet) {
-		print(
-			`😱 Uhoh! This isn't a proper tea party! Every seat must have a fully poured cup of tea.`
-		);
+		print(`😱 Uhoh! This isn't a proper tea party! Every seat must have a fully poured cup of tea.`);
 		return endAdventure();
 	}
 
-	print(
-		`🥳 Every seat had a lovely cup of tea, and a great time was had by all. 🥳 `
-	);
+	print(`🥳 Every seat had a lovely cup of tea, and a great time was had by all. 🥳 `);
 	print(`🏑 Time for a nice game of croquet! 🏑`);
 	return askQuestion('Press ENTER to continue! ', playCroquet);
 }
