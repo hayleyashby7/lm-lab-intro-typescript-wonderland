@@ -3,7 +3,7 @@ import { wakeUp } from '../chapter_6/chapter_6_wake_up';
 import { askQuestion, clear, print } from '../ui/console';
 
 const VERDICTS = ['Guilty', 'Not Guilty'] as const;
-type Verdict = typeof VERDICTS[number];
+type Verdict = (typeof VERDICTS)[number];
 
 interface Witness {
 	name: string;
@@ -16,7 +16,7 @@ export function meetTheQueen(): void {
 
 	let guilty: boolean = false;
 
-	let witnesses: Witness[] = []; // 👉 FIXME ❌ - call getWitnesses here
+	let witnesses: Witness[] = getWitnesses(); // 👉 FIXME ❌ - call getWitnesses here
 
 	if (!witnesses || witnesses.length === 0) {
 		print(`No witnesses have come forward to defend you.`);
@@ -27,9 +27,7 @@ export function meetTheQueen(): void {
 
 	witnesses.forEach((witness) => {
 		witnessCount++;
-		print(
-			`${witness.name} gives their evidence: ${witness.giveEvidence()}`
-		);
+		print(`${witness.name} gives their evidence: ${witness.giveEvidence()}`);
 		if (witness.giveEvidence() === 'Guilty') {
 			guilty = true;
 		}
@@ -46,6 +44,13 @@ export function meetTheQueen(): void {
 }
 
 // 👉 FIXME ❌ - this function needs writing to meet the above criteria
-function getWitnesses(): any {
-	return [];
+function getWitnesses(): Array<Witness> {
+	const witnessList: Array<Witness> = [];
+
+	witnessList.push({ name: 'The March Hare', giveEvidence: () => 'Not Guilty' });
+	witnessList.push({ name: 'The Mad Hatter', giveEvidence: () => 'Not Guilty' });
+	witnessList.push({ name: 'The White Rabbit', giveEvidence: () => 'Not Guilty' });
+	witnessList.push({ name: 'The Cheshire Car', giveEvidence: () => 'Not Guilty' });
+
+	return witnessList;
 }
