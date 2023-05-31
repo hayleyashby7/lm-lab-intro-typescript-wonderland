@@ -45,9 +45,8 @@ export function meetTheQueen(): void {
 
 // 👉 FIXME ❌ - this function needs writing to meet the above criteria
 function getWitnesses(witnessNames: string[]): Witness[] {
-	const witnessList: Witness[] = [];
-
-	witnessNames.forEach((witness) => witnessList.push({ name: witness, giveEvidence: () => 'Not Guilty' }));
-
-	return witnessList;
+	
+	return witnessNames.map((witness) => {
+		return { name: witness, giveEvidence: () => 'Not Guilty' };
+	});
 }
