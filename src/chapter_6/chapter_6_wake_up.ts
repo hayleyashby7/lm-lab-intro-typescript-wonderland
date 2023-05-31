@@ -32,14 +32,9 @@ export function wakeUp(): void {
 		print('Although...❓❓❓');
 		print('What are these tarts doing here?! 🥧🥧🥧🥧🥧🥧 🤔');
 
-		print(
-			'✅ CONGRATULATIONS! You successfully made it through Wonderland! 🥳'
-		);
+		print('✅ CONGRATULATIONS! You successfully made it through Wonderland! 🥳');
 
-		return askQuestion(
-			'Press ENTER to re-enter Wonderland! ',
-			haveAdventures
-		);
+		return askQuestion('Press ENTER to re-enter Wonderland! ', haveAdventures);
 	} else {
 		print('You are unable to wake up! 😱');
 		return endAdventure();
@@ -48,5 +43,13 @@ export function wakeUp(): void {
 
 function tryToWakeUp(): WakeUp {
 	// 👉 FIXME ❌
-	return {};
+	return {
+		wake: {
+			wake: {
+				wake: {
+					canWake: 'Yes',
+				},
+			},
+		},
+	};
 }
