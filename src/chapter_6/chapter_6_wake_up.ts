@@ -35,7 +35,7 @@ export function wakeUp(): void {
 
 		print('✅ CONGRATULATIONS! You successfully made it through Wonderland! 🥳');
 
-		return askQuestion('Although...hold on a minute...what is that behind the fireplace?', throughLookingGlass);
+		return askQuestion('Although...hold on a minute...where did these kittens come from?', throughLookingGlass);
 	} else {
 		print('You are unable to wake up! 😱');
 		return endAdventure();
