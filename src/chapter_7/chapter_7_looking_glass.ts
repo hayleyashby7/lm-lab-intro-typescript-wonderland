@@ -1,6 +1,5 @@
 import { endAdventure, haveAdventures } from '../..';
-import { askQuestion } from '../ui/console';
-import { clear, print } from '../ui/console';
+import { clear, print, askQuestion } from '../ui/console';
 
 const PURR = 'purrs';
 const MEOW = 'meows';
