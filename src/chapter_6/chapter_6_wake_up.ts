@@ -1,4 +1,5 @@
-import { endAdventure, haveAdventures } from '../..';
+import { endAdventure } from '../..';
+import { throughLookingGlass } from '../chapter_7/chapter_7_looking_glass';
 import { askQuestion, clear, print } from '../ui/console';
 
 // ⚠️ This is a very unusual type setup. It's not a great idea in the real world
@@ -34,7 +35,7 @@ export function wakeUp(): void {
 
 		print('✅ CONGRATULATIONS! You successfully made it through Wonderland! 🥳');
 
-		return askQuestion('Press ENTER to re-enter Wonderland! ', haveAdventures);
+		return askQuestion('Although...hold on a minute...what is that behind the fireplace?', throughLookingGlass);
 	} else {
 		print('You are unable to wake up! 😱');
 		return endAdventure();
